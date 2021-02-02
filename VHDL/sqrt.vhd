@@ -8,7 +8,7 @@
 --Inputs:
 --    radicand, remainder_before
 --Outputs:
---    root, remainder
+--    root_int, root_decimal
 --
 --Description:
 --    This block corresponds to square root algorithm
@@ -26,7 +26,8 @@ generic(
 );
 port(
 	radicand: in std_logic_vector(n-1 downto 0);
-	root, remainder: out std_logic_vector(n-1 downto 0)
+	root_int: out std_logic_vector((n/2)-1 downto 0);
+	root_decimal: out std_logic_vector(n+(n/2)-1 downto 0)
 );
 end entity;
 
@@ -96,7 +97,7 @@ steps_instantation: for i in 0 to n-1 generate
 end generate steps_instantation;
 
 --output assigns
-root <= rootSignal;
-remainder <= remainderArray(n)(n-1 downto 0);
+root_int <= rootSignal(n-1 downto (n/2));
+root_decimal <= rootSignal((n/2)-1 downto 0) & remainderArray(n)(n-1 downto 0);
 
 end rtl;

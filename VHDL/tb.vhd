@@ -24,7 +24,9 @@ end entity;
 
 architecture rtl of tb is
 
-signal radicand, root, remainder: std_logic_vector(n-1 downto 0);
+signal radicand: std_logic_vector(n-1 downto 0);
+signal root: std_logic_vector((n/2)-1 downto 0);
+signal remainder: std_logic_vector(n+(n/2)-1 downto 0);
 signal radicand_temp: signed(n-1 downto 0) := (others=>'0');
 
 begin
@@ -38,8 +40,8 @@ generic map(
 )
 port map(
 	radicand => radicand,
-	root => root,
-	remainder => remainder
+	root_int => root,
+	root_decimal => remainder
 );
 
 --Counter for divisor test
