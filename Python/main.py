@@ -1,8 +1,8 @@
 """
 SQRT int algorithm implementation
 Authors:
---  Robert Limas
---  Wilson Perez
+--  Robert Alexander Limas Sierra
+--  Wilson Javier Perez Holguin
 Year: 2021
 
 Inputs:
